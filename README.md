@@ -42,15 +42,15 @@ Demonstrate your understanding of this week's concepts by answering the followin
 
     > _Relational Databases_ are a class of database in which all information is "atomic" (there are no literal composite values: lists, objects, etc.) and all information is "related" by identifiers. The formation of composite values is acheived by associating information in multiple tables by their identifiers. _SQL_ is a family of languages for creating and interacting with relational databases.
 
--   [ ] Why do tables need a `primary key`?
+-   [x] Why do tables need a `primary key`?
 
     > Tables need primary keys (_PKs_) so specific records can be accessed.
 
--   [ ] What is the name given to a table column that references the primary key on another table.
+-   [x] What is the name given to a table column that references the primary key on another table.
 
     > A column that references the primary key on another table is called a _foreign key_ (a _FK_).
 
--   [ ] What do we need in order to have a _many to many_ relationship between two tables.
+-   [x] What do we need in order to have a _many to many_ relationship between two tables.
 
     > To create a _many to many_ relationship between 2 (or more?) tables, we must create another table (a _relation table_) of FKs referencing the PKs of the related tables. If the relationships must be unique, we can give this _relation table_ a compound PK composed of the FKs.
 
