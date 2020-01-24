@@ -48,7 +48,7 @@ Demonstrate your understanding of this week's concepts by answering the followin
 
 -   [ ] What is the name given to a table column that references the primary key on another table.
 
-    >
+    > A column that references the primary key on another table is called a _foreign key_.
 
 -   [ ] What do we need in order to have a _many to many_ relationship between two tables.
 
