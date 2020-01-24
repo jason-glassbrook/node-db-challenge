@@ -23,6 +23,7 @@ exports.up = (knex) => (
       t
         .string ('name', 255)
         .notNullable ()
+        .unique ()
       t
         .text ('description')
         .nullable ()
