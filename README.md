@@ -38,13 +38,21 @@ Commit your code regularly and use descriptive messages. This helps both you (in
 
 Demonstrate your understanding of this week's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
--   [ ] Explain the difference between `Relational Databases` and `SQL`.
+-   [x] Explain the difference between `Relational Databases` and `SQL`.
+
+    > _Relational Databases_ are a class of database in which all information is "atomic" (there are no literal composite values: lists, objects, etc.) and all information is "related" by identifiers. The formation of composite values is acheived by associating information in multiple tables by their identifiers. _SQL_ is a family of languages for creating and interacting with relational databases.
 
 -   [ ] Why do tables need a `primary key`?
 
+    >
+
 -   [ ] What is the name given to a table column that references the primary key on another table.
 
+    >
+
 -   [ ] What do we need in order to have a _many to many_ relationship between two tables.
+
+    >
 
 ## Minimum Viable Product
 
