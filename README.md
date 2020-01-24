@@ -44,15 +44,15 @@ Demonstrate your understanding of this week's concepts by answering the followin
 
 -   [ ] Why do tables need a `primary key`?
 
-    > Tables need primary keys so specific records can be accessed.
+    > Tables need primary keys (_PKs_) so specific records can be accessed.
 
 -   [ ] What is the name given to a table column that references the primary key on another table.
 
-    > A column that references the primary key on another table is called a _foreign key_.
+    > A column that references the primary key on another table is called a _foreign key_ (a _FK_).
 
 -   [ ] What do we need in order to have a _many to many_ relationship between two tables.
 
-    >
+    > To create a _many to many_ relationship between 2 (or more?) tables, we must create another table (a _relation table_) of FKs referencing the PKs of the related tables. If the relationships must be unique, we can give this _relation table_ a compound PK composed of the FKs.
 
 ## Minimum Viable Product
 
