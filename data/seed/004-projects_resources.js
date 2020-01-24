@@ -1,15 +1,19 @@
 
 exports.seed = (knex) => (
-  // Deletes ALL existing entries
-  knex ('table_name')
+  // delete ALL existing entries
+  knex ('projects_resources')
   .delete ()
   .then (() => (
-    // Inserts seed entries
-    knex ('table_name').insert ([
-        { colName : 'rowValue1' },
-        { colName : 'rowValue2' },
-        { colName : 'rowValue3' },
-      ])
-    )
-  )
+    // insert seed entries
+    knex ('projects_resources').insert ([
+      {
+        project_id : 1,
+        resource_id : 1,
+      },
+      {
+        project_id : 1,
+        resource_id : 2,
+      },
+    ])
+  ))
 )
