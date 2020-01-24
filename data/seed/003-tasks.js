@@ -1,11 +1,11 @@
 
 exports.seed = (knex) => (
   // delete ALL existing entries
-  knex ('table_name')
+  knex ('tasks')
   .delete ()
   .then (() => (
     // insert seed entries
-    knex ('table_name').insert ([
+    knex ('tasks').insert ([
       {
         id: 1,
         description: `this is a task's description`,

@@ -1,11 +1,11 @@
 
 exports.seed = (knex) => (
   // delete ALL existing entries
-  knex ('table_name')
+  knex ('resources')
   .delete ()
   .then (() => (
     // insert seed entries
-    knex ('table_name').insert ([
+    knex ('resources').insert ([
       {
         id: 1,
         name: `this is a resource's name`,
