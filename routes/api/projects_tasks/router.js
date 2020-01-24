@@ -3,14 +3,13 @@
 ***********************************************************/
 
 const express = require ('express')
+const models = require ('./to-models')
 
 /***************************************
   setup router
 ***************************************/
 
 const router = express.Router ()
-
-/// routes ///
 
 /// requests ///
 
