@@ -1,5 +1,5 @@
 /***********************************************************
-  ~/projects - router
+  ~/projects/:project_id/resources - router
 ***********************************************************/
 
 const express = require ('express')
