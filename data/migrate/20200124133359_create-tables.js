@@ -44,6 +44,10 @@ exports.up = (knex) => (
         .defaultTo (false)
     })
     .createTable ('projects_resources', (t) => {
+      // 1 project -> 0 or more resources
+      // 1 resource -> 0 or more projects
+      t
+        .primary ([ 'project_id', 'resource_id' ])
       t
         .integer ('project_id').unsigned ()
         .notNullable ()
@@ -56,10 +60,12 @@ exports.up = (knex) => (
         .references ('id').inTable ('resources')
         .onUpdate ('CASCADE')
         .onDelete ('CASCADE')
-      t
-        .primary ([ 'project_id', 'resource_id' ])
     })
     .createTable ('projects_tasks', (t) => {
+      // 1 project -> 0 or more tasks
+      // 1 task -> 1 project
+      t
+        .primary ([ 'task_id' ])
       t
         .integer ('project_id').unsigned ()
         .notNullable ()
@@ -72,8 +78,6 @@ exports.up = (knex) => (
         .references ('id').inTable ('tasks')
         .onUpdate ('CASCADE')
         .onDelete ('CASCADE')
-      t
-        .primary ([ 'project_id', 'task_id' ])
     })
 )
 
