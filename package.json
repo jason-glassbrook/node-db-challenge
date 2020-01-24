@@ -1,0 +1,10 @@
+{
+  "name": "challenge--node-db",
+  "version": "1.0.0",
+  "description": "Sprint Challenge for Node DB",
+  "repository": "https://github.com/jason-glassbrook/web25.u4n.s2.challenge--node-db.git",
+  "author": "Jason Glassbrook <28660371+jason-glassbrook@users.noreply.github.com>",
+  "license": "MIT",
+  "private": false,
+  "main": "index.js"
+}
