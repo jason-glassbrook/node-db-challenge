@@ -78,8 +78,8 @@ exports.up = (knex) => (
 
 exports.down = (knex) => (
   knex.schema
-  .dropTableIfExists ('projects_resources')
-  .dropTableIfExists ('projects_tasks')
+    .dropTableIfExists ('projects_resources')
+    .dropTableIfExists ('projects_tasks')
     .dropTableIfExists ('projects')
     .dropTableIfExists ('resources')
     .dropTableIfExists ('tasks')
