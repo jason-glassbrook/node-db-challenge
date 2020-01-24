@@ -143,26 +143,26 @@ Add an endpoint for retrieving a `project` by its `id` that returns an object wi
       id: 1,
       description: 'task description',
       notes: 'the task notes',
-      completed: false // or true
+      completed: false, // or true
     },
     {
       id: 7,
       description: 'another task description',
       notes: 'the task notes',
-      completed: false // or true
-    }
+      completed: false, // or true
+    },
   ],
   resources: [
     {
       id: 1,
       name: 'Lambda Student',
-      description: 'a soon to be hired developer'
+      description: 'a soon to be hired developer',
     },
     {
       id: 2,
-      name: 'MacBook Pro #1'
-      description: 'an overly expensive laptop computer'
-    }
+      name: 'MacBook Pro #1',
+      description: 'an overly expensive laptop computer',
+    },
   ]
 }
 ```
