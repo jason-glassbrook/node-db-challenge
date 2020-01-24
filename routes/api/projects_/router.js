@@ -10,11 +10,6 @@ const express = require ('express')
 
 const router = express.Router ()
 
-/// routes ///
-
-router.use ('/resources', require ('./resources').router)
-router.use ('/tasks', require ('./tasks').router)
-
 /// requests ///
 
 router.route ('/')
