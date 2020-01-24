@@ -57,7 +57,6 @@ exports.up = (knex) => (
         .onDelete ('CASCADE')
       t
         .primary ([ 'project_id', 'resource_id' ])
-        .notNullable ()
     })
     .createTable ('projects_tasks', (t) => {
       t
@@ -74,15 +73,14 @@ exports.up = (knex) => (
         .onDelete ('CASCADE')
       t
         .primary ([ 'project_id', 'task_id' ])
-        .notNullable ()
     })
 )
 
 exports.down = (knex) => (
   knex.schema
+  .dropTableIfExists ('projects_resources')
+  .dropTableIfExists ('projects_tasks')
     .dropTableIfExists ('projects')
     .dropTableIfExists ('resources')
     .dropTableIfExists ('tasks')
-    .dropTableIfExists ('projects_resources')
-    .dropTableIfExists ('projects_tasks')
 )
