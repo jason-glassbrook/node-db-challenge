@@ -44,7 +44,7 @@ Demonstrate your understanding of this week's concepts by answering the followin
 
 -   [ ] Why do tables need a `primary key`?
 
-    >
+    > Tables need primary keys so specific records can be accessed.
 
 -   [ ] What is the name given to a table column that references the primary key on another table.
 
