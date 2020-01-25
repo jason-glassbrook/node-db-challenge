@@ -6,7 +6,7 @@ module.exports =
     let [ task_record ] = await (
       data ('tasks')
       .where ({ id : task_id })
-      )
+    )
 
     task_record = boolify (task_record, 'completed')
 
