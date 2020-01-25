@@ -32,7 +32,7 @@ router.route ('/projects')
     .status (500)
     .json ({
       'error' : {
-        'message' : 'failed to get all projects',
+        'message' : `failed to get all projects`,
         'method' : ri.method,
         'route' : ri.originalUrl,
       }
@@ -61,7 +61,7 @@ router.route ('/projects')
     .status (500)
     .json ({
       'error' : {
-        'message' : 'failed to add new project to projects',
+        'message' : `failed to add new project to projects`,
         'method' : ri.method,
         'route' : ri.originalUrl,
       }
