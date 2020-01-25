@@ -18,7 +18,7 @@ router.route ('/projects/:project_id/tasks')
 
   const { project_id } = ri.params
 
-  api.projects_tasks.get (project_id)
+  api.projects_tasks.get ({ project_id })
   .then ((tasks) => {
 
     if (tasks !== undefined && tasks !== null) {
