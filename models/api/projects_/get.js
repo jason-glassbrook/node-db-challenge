@@ -1,9 +1,9 @@
-const db = require ('./db')
+const data = require ('./to-data')
 
 module.exports =
   async (step_id) => {
     const [ step_record ] = await (
-      db ('steps')
+      data ('steps')
       .where ({ id : step_id })
       )
 

@@ -1,10 +1,10 @@
-const db = require ('./db')
+const data = require ('./to-data')
 const get = require ('./get')
 
 module.exports =
   async (resource_value) => {
     const [ resource_id ] = await (
-      db ('resources')
+      data ('resources')
       .insert (resource_value)
     )
 

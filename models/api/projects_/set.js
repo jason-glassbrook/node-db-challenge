@@ -1,10 +1,10 @@
-const db = require ('./db')
+const data = require ('./to-data')
 const get = require ('./get')
 
 module.exports =
   async (step_id, step_value) => {
     await (
-      db ('steps')
+      data ('steps')
       .where ({ id : step_id })
       .update (step_value)
     )

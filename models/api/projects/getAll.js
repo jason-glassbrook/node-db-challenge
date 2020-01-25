@@ -1,9 +1,9 @@
-const db = require ('./db')
+const data = require ('./to-data')
 
 module.exports =
   async () => {
     const project_records = await (
-      db ('projects')
+      data ('projects')
     )
 
     return project_records

@@ -1,4 +1,4 @@
-const db = require ('./db')
+const data = require ('./to-data')
 const get = require ('./get')
 
 module.exports =
@@ -6,7 +6,7 @@ module.exports =
     const step_record = await get (step_id)
 
     await (
-      db ('steps')
+      data ('steps')
       .where ({ id : step_id })
       .delete ()
     )
