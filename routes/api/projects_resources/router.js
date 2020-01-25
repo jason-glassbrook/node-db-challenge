@@ -63,16 +63,16 @@ router.route ('/projects/:project_id/resources')
 .post ((ri, ro) => {
 
   const { project_id } = ri.params
-  const data = ri.body
+  const data = { ...ri.body, project_id }
 
-  api.projects_resources.push (project_id, data)
-  .then ((resources) => {
+  api.resources.push (data)
+  .then ((resource) => {
 
-    if (resources !== undefined && resources !== null) {
+    if (resource !== undefined && resource !== null) {
 
       ro
       .status (200)
-      .json (resources)
+      .json (resource)
 
     }
     else {
