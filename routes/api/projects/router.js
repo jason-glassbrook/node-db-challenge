@@ -61,7 +61,7 @@ router.route ('/projects')
     .status (500)
     .json ({
       'error' : {
-        'message' : `failed to add new project to projects`,
+        'message' : `failed to push new project to projects`,
         'method' : ri.method,
         'route' : ri.originalUrl,
       }
