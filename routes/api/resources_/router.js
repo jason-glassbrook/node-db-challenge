@@ -21,7 +21,7 @@ router.route ('/resources/:resource_id')
   api.resources.get (resource_id)
   .then ((resource) => {
 
-    if (resource) {
+    if (resource !== undefined && resource !== null) {
 
       ro
       .status (200)
@@ -68,7 +68,7 @@ router.route ('/resources/:resource_id')
   api.resources.set (resource_id, data)
   .then ((resource) => {
 
-    if (resource) {
+    if (resource !== undefined && resource !== null) {
 
       ro
       .status (200)
@@ -114,7 +114,7 @@ router.route ('/resources/:resource_id')
   api.resources.pull (resource_id)
   .then ((resource) => {
 
-    if (resource) {
+    if (resource !== undefined && resource !== null) {
 
       ro
       .status (200)

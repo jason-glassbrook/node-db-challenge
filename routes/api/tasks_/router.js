@@ -21,7 +21,7 @@ router.route ('/tasks/:task_id')
   api.tasks.get (task_id)
   .then ((task) => {
 
-    if (task) {
+    if (task !== undefined && task !== null) {
 
       ro
       .status (200)
@@ -68,7 +68,7 @@ router.route ('/tasks/:task_id')
   api.tasks.set (task_id, data)
   .then ((task) => {
 
-    if (task) {
+    if (task !== undefined && task !== null) {
 
       ro
       .status (200)
@@ -114,7 +114,7 @@ router.route ('/tasks/:task_id')
   api.tasks.pull (task_id)
   .then ((task) => {
 
-    if (task) {
+    if (task !== undefined && task !== null) {
 
       ro
       .status (200)

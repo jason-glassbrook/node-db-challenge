@@ -21,7 +21,7 @@ router.route ('/projects/:project_id')
   api.projects.get (project_id)
   .then ((project) => {
 
-    if (project) {
+    if (project !== undefined && project !== null) {
 
       ro
       .status (200)
@@ -68,7 +68,7 @@ router.route ('/projects/:project_id')
   api.projects.set (project_id, data)
   .then ((project) => {
 
-    if (project) {
+    if (project !== undefined && project !== null) {
 
       ro
       .status (200)
@@ -114,7 +114,7 @@ router.route ('/projects/:project_id')
   api.projects.pull (project_id)
   .then ((project) => {
 
-    if (project) {
+    if (project !== undefined && project !== null) {
 
       ro
       .status (200)
