@@ -1,4 +1,5 @@
 const data = require ('./to-data')
+const boolify = require ('../boolify')
 
 module.exports =
   async (task_id) => {
@@ -7,5 +8,5 @@ module.exports =
       .where ({ id : task_id })
       )
 
-    return task_record
+      return boolify (task_record, 'completed')
   }

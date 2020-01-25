@@ -1,4 +1,5 @@
 const data = require ('./to-data')
+const boolify = require ('../boolify')
 
 module.exports =
   async () => {
@@ -6,5 +7,7 @@ module.exports =
       data ('projects')
     )
 
-    return project_records
+    return project_records.map (
+      (record) => boolify (record, 'completed')
+    )
   }
