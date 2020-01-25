@@ -9,7 +9,7 @@ module.exports =
       .update (resource_value)
     )
 
-    const resource_record = await get (resource_id)
+    let resource_record = await get (resource_id)
 
     return resource_record
   }

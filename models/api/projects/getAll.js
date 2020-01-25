@@ -3,11 +3,13 @@ const boolify = require ('../boolify')
 
 module.exports =
   async () => {
-    const project_records = await (
+    let project_records = await (
       data ('projects')
     )
 
-    return project_records.map (
+    project_records = project_records.map (
       (record) => boolify (record, 'completed')
     )
+
+    return project_records
   }

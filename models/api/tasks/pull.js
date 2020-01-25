@@ -3,7 +3,7 @@ const get = require ('./get')
 
 module.exports =
   async (task_id) => {
-    const task_record = await get (task_id)
+    let task_record = await get (task_id)
 
     await (
       data ('tasks')

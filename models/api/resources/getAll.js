@@ -2,7 +2,7 @@ const data = require ('./to-data')
 
 module.exports =
   async () => {
-    const resource_records = await (
+    let resource_records = await (
       data ('resources')
     )
 

@@ -3,10 +3,12 @@ const boolify = require ('../boolify')
 
 module.exports =
   async (task_id) => {
-    const [ task_record ] = await (
+    let [ task_record ] = await (
       data ('tasks')
       .where ({ id : task_id })
       )
 
-      return boolify (task_record, 'completed')
+    task_record = boolify (task_record, 'completed')
+
+    return task_record
   }

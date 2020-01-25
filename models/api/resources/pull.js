@@ -3,7 +3,7 @@ const get = require ('./get')
 
 module.exports =
   async (resource_id) => {
-    const resource_record = await get (resource_id)
+    let resource_record = await get (resource_id)
 
     await (
       data ('resources')

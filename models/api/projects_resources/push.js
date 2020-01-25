@@ -8,7 +8,7 @@ module.exports =
       .insert (projects_resources_value)
     )
 
-    const projects_resources_record = await get (projects_resources_id)
+    let projects_resources_record = await get (projects_resources_id)
 
     return projects_resources_record
   }

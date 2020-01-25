@@ -8,7 +8,7 @@ module.exports =
       .insert (project_value)
     )
 
-    const project_record = await get (project_id)
+    let project_record = await get (project_id)
 
     return project_record
   }
