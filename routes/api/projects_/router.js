@@ -13,8 +13,11 @@ const router = express.Router ()
 
 /// requests ///
 
-router.route ('/')
+router.route ('/projects/:project_id')
 .get ((ri, ro) => {
+
+  console.log (ri.params)
+
   ro
   .status (501)
   .json ({

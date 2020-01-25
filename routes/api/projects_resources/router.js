@@ -13,7 +13,7 @@ const router = express.Router ()
 
 /// requests ///
 
-router.route ('/')
+router.route ('/projects/:project_id/resources')
 .get ((ri, ro) => {
   ro
   .status (501)

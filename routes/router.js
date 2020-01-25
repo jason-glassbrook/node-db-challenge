@@ -12,7 +12,9 @@ const router = express.Router ()
 
 /// routes ///
 
-router.use ('/api', require ('./api').router)
+router.use ('/', [
+  require ('./api').router,
+])
 
 /// requests ///
 

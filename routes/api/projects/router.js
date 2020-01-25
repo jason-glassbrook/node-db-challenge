@@ -13,7 +13,7 @@ const router = express.Router ()
 
 /// requests ///
 
-router.route ('/')
+router.route ('/projects')
 .get ((ri, ro) => {
 
   api.projects.getAll ()

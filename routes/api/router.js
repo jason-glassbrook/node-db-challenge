@@ -10,28 +10,34 @@ const express = require ('express')
 
 const router = express.Router ()
 
-router.use ([
+router.use ('/api', [
   express.json (),
+  require ('./projects').router,
+  require ('./projects_').router,
+  require ('./projects_resources').router,
+  require ('./projects_tasks').router,
+  require ('./resources').router,
+  require ('./tasks').router,
 ])
 
-/// routes ///
+// /// routes ///
 
-router.use (
-  '/projects',
-  require ('./projects').router,
-)
-router.use (
-  '/projects/:project_id',
-  require ('./projects_').router,
-)
-router.use (
-  '/projects/:project_id/resources',
-  require ('./projects_resources').router,
-)
-router.use (
-  '/projects/:project_id/tasks',
-  require ('./projects_tasks').router,
-)
+// router.use (
+//   '/projects',
+//   require ('./projects').router,
+// )
+// router.use (
+//   '/projects/:project_id',
+//   require ('./projects_').router,
+// )
+// router.use (
+//   '/projects/:project_id/resources',
+//   require ('./projects_resources').router,
+// )
+// router.use (
+//   '/projects/:project_id/tasks',
+//   require ('./projects_tasks').router,
+// )
 
 /**************************************/
 

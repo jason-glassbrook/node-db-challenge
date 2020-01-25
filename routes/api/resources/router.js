@@ -13,7 +13,7 @@ const router = express.Router ()
 
 /// requests ///
 
-router.route ('/')
+router.route ('/resources')
 .get ((ri, ro) => {
 
   api.resources.getAll ()
