@@ -2,14 +2,14 @@ const data = require ('./to-data')
 const get = require ('./get')
 
 module.exports =
-  async (step_id, step_value) => {
+  async (task_id, task_value) => {
     await (
-      data ('steps')
-      .where ({ id : step_id })
-      .update (step_value)
+      data ('tasks')
+      .where ({ id : task_id })
+      .update (task_value)
     )
 
-    const step_record = await get (step_id)
+    const task_record = await get (task_id)
 
-    return step_record
+    return task_record
   }

@@ -1,11 +1,11 @@
 const data = require ('./to-data')
 
 module.exports =
-  async (step_id) => {
-    const [ step_record ] = await (
-      data ('steps')
-      .where ({ id : step_id })
-      )
+  async (projects_tasks_id) => {
+    const [ projects_tasks_record ] = await (
+      data ('projects_tasks')
+      .where ({ id : projects_tasks_id })
+    )
 
-    return step_record
+    return projects_tasks_record
   }
