@@ -15,26 +15,97 @@ const router = express.Router ()
 
 router.route ('/projects/:project_id/tasks')
 .get ((ri, ro) => {
-  ro
-  .status (501)
-  .json ({
-    'error' : {
-      'message' : 'working on it...',
-      'method' : ri.method,
-      'route' : ri.originalUrl,
+
+  const { project_id } = ri.params
+
+  api.projects_tasks.get (project_id)
+  .then ((tasks) => {
+
+    if (tasks !== undefined && tasks !== null) {
+
+      ro
+      .status (200)
+      .json (tasks)
+
     }
+    else {
+
+      ro
+      .status (404)
+      .json ({
+        'error' : {
+          'message' : `could not find project with id ${project_id}`,
+          'method' : ri.method,
+          'route' : ri.originalUrl,
+        }
+      })
+
+    }
+
   })
+  .catch ((error) => {
+
+    console.log (error)
+
+    ro
+    .status (500)
+    .json ({
+      'error' : {
+        'message' : `failed to get all tasks of project with id ${project_id}`,
+        'method' : ri.method,
+        'route' : ri.originalUrl,
+      }
+    })
+
+  })
+
 })
 .post ((ri, ro) => {
-  ro
-  .status (501)
-  .json ({
-    'error' : {
-      'message' : 'working on it...',
-      'method' : ri.method,
-      'route' : ri.originalUrl,
+
+  const { project_id } = ri.params
+  const data = ri.body
+
+  api.projects_tasks.push (project_id, data)
+  .then ((tasks) => {
+
+    if (tasks !== undefined && tasks !== null) {
+
+      ro
+      .status (200)
+      .json (tasks)
+
     }
+    else {
+
+      ro
+      .status (404)
+      .json ({
+        'error' : {
+          'message' : `could not find project with id ${project_id}`,
+          'method' : ri.method,
+          'route' : ri.originalUrl,
+        }
+      })
+
+    }
+
   })
+  .catch ((error) => {
+
+    console.log (error)
+
+    ro
+    .status (500)
+    .json ({
+      'error' : {
+        'message' : `failed to push new task to tasks of project with id ${project_id}`,
+        'method' : ri.method,
+        'route' : ri.originalUrl,
+      }
+    })
+
+  })
+
 })
 
 /**************************************/
