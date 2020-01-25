@@ -17,7 +17,9 @@ router.use ('/api', [
   require ('./projects_resources').router,
   require ('./projects_tasks').router,
   require ('./resources').router,
+  require ('./resources_').router,
   require ('./tasks').router,
+  require ('./tasks_').router,
 ])
 
 // /// routes ///
