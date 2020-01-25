@@ -16,39 +16,142 @@ const router = express.Router ()
 router.route ('/projects/:project_id')
 .get ((ri, ro) => {
 
-  console.log (ri.params)
+  const { project_id } = ri.params
 
-  ro
-  .status (501)
-  .json ({
-    'error' : {
-      'message' : 'working on it...',
-      'method' : ri.method,
-      'route' : ri.originalUrl,
+  api.projects.get (project_id)
+  .then ((project) => {
+
+    if (project) {
+
+      ro
+      .status (200)
+      .json (project)
+
     }
+    else {
+
+      ro
+      .status (404)
+      .json ({
+        'error' : {
+          'message' : `could not find project with id ${project_id}`,
+          'method' : ri.method,
+          'route' : ri.originalUrl,
+        }
+      })
+
+    }
+
   })
+  .catch ((error) => {
+
+    console.log (error)
+
+    ro
+    .status (500)
+    .json ({
+      'error' : {
+        'message' : `failed to get project with id ${project_id}`,
+        'method' : ri.method,
+        'route' : ri.originalUrl,
+      }
+    })
+
+  })
+
 })
 .put ((ri, ro) => {
-  ro
-  .status (501)
-  .json ({
-    'error' : {
-      'message' : 'working on it...',
-      'method' : ri.method,
-      'route' : ri.originalUrl,
+
+  const { project_id } = ri.params
+  const data = ri.body
+
+  api.projects.set (project_id, data)
+  .then ((project) => {
+
+    if (project) {
+
+      ro
+      .status (200)
+      .json (project)
+
     }
+    else {
+
+      ro
+      .status (404)
+      .json ({
+        'error' : {
+          'message' : `could not find project with id ${project_id}`,
+          'method' : ri.method,
+          'route' : ri.originalUrl,
+        }
+      })
+
+    }
+
   })
+  .catch ((error) => {
+
+    console.log (error)
+
+    ro
+    .status (500)
+    .json ({
+      'error' : {
+        'message' : `failed to set changes to project with id ${project_id}`,
+        'method' : ri.method,
+        'route' : ri.originalUrl,
+      }
+    })
+
+  })
+
 })
 .delete ((ri, ro) => {
-  ro
-  .status (501)
-  .json ({
-    'error' : {
-      'message' : 'working on it...',
-      'method' : ri.method,
-      'route' : ri.originalUrl,
+
+  const { project_id } = ri.params
+
+  api.projects.pull (project_id)
+  .then ((project) => {
+
+    if (project) {
+
+      ro
+      .status (200)
+      .json (project)
+
     }
+    else {
+
+      ro
+      .status (404)
+      .json ({
+        'error' : {
+          'message' : `could not find project with id ${project_id}`,
+          'method' : ri.method,
+          'route' : ri.originalUrl,
+        }
+      })
+
+    }
+
   })
+  .catch ((error) => {
+
+    console.log (error)
+
+    ro
+    .status (500)
+    .json ({
+      'error' : {
+        'message' : `failed to pull project with id ${project_id}`,
+        'method' : ri.method,
+        'route' : ri.originalUrl,
+      }
+    })
+
+  })
+
 })
 
 /**************************************/
