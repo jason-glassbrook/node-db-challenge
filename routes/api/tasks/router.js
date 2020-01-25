@@ -15,25 +15,58 @@ const router = express.Router ()
 
 router.route ('/')
 .get ((ri, ro) => {
-  ro
-  .status (501)
-  .json ({
-    'error' : {
-      'message' : 'working on it...',
-      'method' : ri.method,
-      'route' : ri.originalUrl,
-    }
+
+  api.tasks.getAll ()
+  .then ((tasks) => {
+
+    ro
+    .status (200)
+    .json (tasks)
+
   })
+  .catch ((error) => {
+
+    console.log (error)
+
+    ro
+    .status (500)
+    .json ({
+      'error' : {
+        'message' : 'failed to get all tasks',
+        'method' : ri.method,
+        'route' : ri.originalUrl,
+      }
+    })
+
+  })
+
 })
 .post ((ri, ro) => {
-  ro
-  .status (501)
-  .json ({
-    'error' : {
-      'message' : 'working on it...',
-      'method' : ri.method,
-      'route' : ri.originalUrl,
-    }
+
+  const data = ri.body
+
+  api.tasks.push (data)
+  .then ((task) => {
+
+    ro
+    .status (201)
+    .json (task)
+
+  })
+  .catch ((error) => {
+
+    console.log (error)
+
+    ro
+    .status (500)
+    .json ({
+      'error' : {
+        'message' : 'failed to add new task to tasks',
+        'method' : ri.method,
+        'route' : ri.originalUrl,
+      }
+    })
+
   })
 })
 

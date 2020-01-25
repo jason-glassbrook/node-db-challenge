@@ -15,25 +15,58 @@ const router = express.Router ()
 
 router.route ('/')
 .get ((ri, ro) => {
-  ro
-  .status (501)
-  .json ({
-    'error' : {
-      'message' : 'working on it...',
-      'method' : ri.method,
-      'route' : ri.originalUrl,
-    }
+
+  api.resources.getAll ()
+  .then ((resources) => {
+
+    ro
+    .status (200)
+    .json (resources)
+
   })
+  .catch ((error) => {
+
+    console.log (error)
+
+    ro
+    .status (500)
+    .json ({
+      'error' : {
+        'message' : 'failed to get all resources',
+        'method' : ri.method,
+        'route' : ri.originalUrl,
+      }
+    })
+
+  })
+
 })
 .post ((ri, ro) => {
-  ro
-  .status (501)
-  .json ({
-    'error' : {
-      'message' : 'working on it...',
-      'method' : ri.method,
-      'route' : ri.originalUrl,
-    }
+
+  const data = ri.body
+
+  api.resources.push (data)
+  .then ((resource) => {
+
+    ro
+    .status (201)
+    .json (resource)
+
+  })
+  .catch ((error) => {
+
+    console.log (error)
+
+    ro
+    .status (500)
+    .json ({
+      'error' : {
+        'message' : 'failed to add new resource to resources',
+        'method' : ri.method,
+        'route' : ri.originalUrl,
+      }
+    })
+
   })
 })
 

@@ -15,25 +15,58 @@ const router = express.Router ()
 
 router.route ('/')
 .get ((ri, ro) => {
-  ro
-  .status (501)
-  .json ({
-    'error' : {
-      'message' : 'working on it...',
-      'method' : ri.method,
-      'route' : ri.originalUrl,
-    }
+
+  api.projects.getAll ()
+  .then ((projects) => {
+
+    ro
+    .status (200)
+    .json (projects)
+
   })
+  .catch ((error) => {
+
+    console.log (error)
+
+    ro
+    .status (500)
+    .json ({
+      'error' : {
+        'message' : 'failed to get all projects',
+        'method' : ri.method,
+        'route' : ri.originalUrl,
+      }
+    })
+
+  })
+
 })
 .post ((ri, ro) => {
-  ro
-  .status (501)
-  .json ({
-    'error' : {
-      'message' : 'working on it...',
-      'method' : ri.method,
-      'route' : ri.originalUrl,
-    }
+
+  const data = ri.body
+
+  api.projects.push (data)
+  .then ((project) => {
+
+    ro
+    .status (201)
+    .json (project)
+
+  })
+  .catch ((error) => {
+
+    console.log (error)
+
+    ro
+    .status (500)
+    .json ({
+      'error' : {
+        'message' : 'failed to add new project to projects',
+        'method' : ri.method,
+        'route' : ri.originalUrl,
+      }
+    })
+
   })
 })
 
