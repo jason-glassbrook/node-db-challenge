@@ -1,10 +1,10 @@
 const data = require ('./to-data')
 
 module.exports =
-  async (projects_tasks_id) => {
+  async (projects_tasks_query) => {
     const [ projects_tasks_record ] = await (
       data ('projects_tasks')
-      .where ({ id : projects_tasks_id })
+      .where (projects_tasks_query)
     )
 
     return projects_tasks_record
